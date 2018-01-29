@@ -1,0 +1,51 @@
+@()
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @* Here's where we render the page title `String`. *@
+        <title>Post del Blog</title>
+        
+        <!-- Latest compiled and minified CSS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+		
+    </head>
+    <body>
+    <script>
+    	$(document).ready( function() {
+    		var url = "/posts";
+    		$.get(url, function(data) {
+    			console.log(data[0]);
+    			var div_post = $('#div_post');
+    			var contenido = "";
+    			for (var i = 0; i < data.length; i++) {
+	    			contenido += "<span class='card-title'>" + data[i].title + "</span>"+
+	    							"<p>" + data[i].comment + "</p>" +
+	    							"<div class='card-action'>" + data[i].author + "</div>";
+    			}
+    			div_post.html(contenido);
+    				
+    		});
+    	})
+    </script>
+    
+        
+        
+        
+        <div class="row">
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+            <div id="div_post">
+        		</div>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+    </body>
+</html>

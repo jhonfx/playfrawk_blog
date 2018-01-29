@@ -1,0 +1,22 @@
+@()
+
+@main("login") {
+	<div class="container center-block">
+		<div class="col-md-6 col-md-offset-3" style="margin-top: 20%;">
+		<form id="login_blog" method="POST" action="@routes.UserController.doLogin()" id="loginForm" enctype="multipart/form-data">
+			<div class="form-group">
+                   <label for="nameCategory">User</label>
+                   <input type="text" class="form-control" name="username" id="username" required>
+               </div>
+               <div class="form-group">
+                   <label for="nameCategory">Password</label>
+                   <input type="password" class="form-control" name="password" id="password" required>
+               </div>
+			<div class="btn-group" role="group">
+				<button type="submit" id="dologin" class="btn btn-default btn-hover-green" data-action="login" role="button">
+                                       Login</button>
+                                    </div>
+		</form>
+		</div>
+	</div>
+}
